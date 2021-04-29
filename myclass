@@ -1,0 +1,118 @@
+import processing.core.*;
+
+public class myclass extends PApplet {
+
+	public static void main(String[] args) {
+		
+		PApplet.main("myclass");
+		
+		boolean normalweapon = true;
+		
+		
+		
+
+	}
+	
+	public void settings() {
+		
+		int size1 = 500;
+		
+		size(size1, size1);
+	}
+	
+	public void setup() { 
+		
+		
+		background(0,0,0);
+		
+		textSize(30);
+		textAlign(CENTER);
+		text("Tank GO GO GO", 250, 200);
+		textSize(20);
+		textAlign(CENTER);
+		text("Click a mouse to begin the game", 250, 350);
+		
+		
+		
+	}
+	public void draw() {
+		
+		
+		
+		
+		if(mousePressed) {
+			background(0,0,0);
+			
+			
+			fill(0,255,0);
+			textSize(15);
+			text("Player 1 HP:  ",70,30);
+			player(1);
+			fill(0,255,0);
+			text("Player 2 HP:  ",70,60);
+			player(2);
+		}
+		
+	}
+	public void keyPressed() {
+		
+	    // Press 'e' to change weapon
+		if (key == 'e' || key == 'E') {
+		  changeweapon();	
+		}
+	}
+	
+	public void changeweapon() {
+	  //this.normalweapon = 	
+	}
+	
+	
+	public void player(int m) {
+		int hit1 = 3;
+		int hit2 = 1;
+		int hit = 0;
+	    int playerloc = 0;
+	    if(m == 1) {
+	    	playerloc = 0;
+	    	hit = hit1;
+	    }
+	    if(m == 2) {
+	    	playerloc = 30;
+	    	hit = hit2;
+	    }
+		int hpvalue;
+		
+		float x = 20;
+		float y = 35 + playerloc;
+		float w = (100 - hit * 20);
+		float h = 10;
+	    
+		fill(255,0,0);
+		rect(x,y,w,h);
+		
+		isEnd(w);
+		
+	}
+	public void isEnd(float m) {
+	  
+	  if (m == 0) {
+		background(0,0,0); 
+		textSize(50);
+		textAlign(CENTER);
+		text("Game end!",250,250);
+	  }
+	  
+	}
+	public String instructions() {
+	 
+		String s = "Instructions: Use the keys \"w\",\"a\", \"s\", \"d\" to control the movement of tank";
+				
+	    return s;
+	}
+	/*
+	public void Type() {
+		
+	}
+	*/
+	
+}
